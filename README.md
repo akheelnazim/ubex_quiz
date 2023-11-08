@@ -8,7 +8,7 @@ NPSC wants to display a week's worth of shipment data on their dashboard and has
 ## Setup
 - Run in XAMPP Apache Server
 - Import the ubex.sql file for the database
-- Hit the API endpoint `/ubex/api/npsc` with selected value, for example [http://localhost/ubex/api/npsc/?select_date_time=2020-02-1%2002:55:18]
+- Hit the API endpoint `/ubex/api/npsc` with selected value, for example [Example Link](http://localhost/ubex/api/npsc/?select_date_time=2020-02-1%2002:55:18)
 
 ## Implementation
 
