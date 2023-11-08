@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && strpos($_SERVER['REQUEST_URI'], $end
     // Retrieve the result from a variable
     $result = getStatsForAWeek();
     echo $result;
+}else{
+    echo 'Error: Only get method allowed, please try again';
 }
 
 
