@@ -1,21 +1,13 @@
 <?php
-// assuming the user selects the date and time in CEST itself
-// It shows data for last 7 days subtracting 7 day intervals(including the time) as selected
-
-
 // Define the endpoint path
 $endpoint = '/ubex/api/npsc';
 
 // Check if the request matches the endpoint path and is a GET request
-// echo 'Endpoint'. $endpoint .'  reqURI '.$_SERVER['REQUEST_URI'];
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && strpos($_SERVER['REQUEST_URI'], $endpoint) === 0) {
     // Retrieve the result from a variable
     $result = getStatsForAWeek();
     echo $result;
 }
-
-
-
 
 
 
@@ -69,7 +61,6 @@ function getStatsForAWeek()
         $result = array_values($statistics);
 
         // Return as JSON response
-        // header('Content-Type: application/json');
         return json_encode($result);
     } catch (Exception $e) {
         // Handle exceptions, log errors, or return an error response
