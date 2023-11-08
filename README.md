@@ -1,4 +1,4 @@
-# NPSC API Integration
+# NPSC API
 
 ## Scenario
 
@@ -17,7 +17,7 @@ Assumptions:
 
 ### API Functionality
 
-1. The API accepts a user-selected date and time in CEST via a `selected_date_time` parameter. If not provided, it defaults to '2020-02-18 02:55:18' (latest entry in the example data).
+1. The API accepts a user-selected date and time in CEST via a `selected_date_time` parameter at endpoint `/ubex/api/npsc`. If not provided, it defaults to '2020-02-18 02:55:18' (latest entry in the example data).
 
 2. It converts the selected date and time to GMT+3 using the `convertToGMT3` function, assuming that CEST corresponds to GMT+3.
 
@@ -28,8 +28,8 @@ Assumptions:
 5. The queries are prepared, and the parameters are bound and executed to retrieve the data.
 
 6. The fetched data is processed to generate statistics using the `generateStats` function.
-    - The total ongoing shipments before the first day which are calculated using thier last updated date and status,    are added to the ongoing field for the first day.
-    - Corresponding ongoing shipments are calculated cumilatively, decremented by 1 if it encounters a shipment of 'DELIEVERED' or 'COMPLETED', otherwise incremented by 1.
+    - The total ongoing shipments before the first day which are calculated using their last updated date and status,    are added to the ongoing field for the first day.
+    - Corresponding ongoing shipments are calculated cumulatively, decremented by 1 if it encounters a shipment of 'DELIVERED' or 'COMPLETED', otherwise incremented by 1.
 
 7. The statistics are converted to the desired format, and the response is returned as a JSON object.
 
@@ -49,10 +49,10 @@ To further enhance the solution:
 - Implement rate limiting to prevent abuse.
 - Set up logging and error tracking.
 - Conduct unit tests, integration tests, and end-to-end tests.
-- Monitor the API's performance and health in real-time.
+- Monitor the API's performance and health in real time.
 - Plan for scalability with load balancing and horizontal scaling.
 - Consider versioning for backward compatibility.
-- Provide user feedback channels for improvements, learning from the user.
+- Provide user feedback channels for improvements, and learning from the user.
 
 ### Testing Mechanisms
 
@@ -72,5 +72,5 @@ If NPSC's system calls the API once every 500 milliseconds, it might lead to exc
 
 ### Caching
 
-Caching can be applied to improve performance. Caching the results of database queries, especially for frequently accessed or relatively static data, can significantly reduce the load on the database, in this case, the shipping data for last 7 days. Common caching mechanisms include in-memory caching or external caching solutions like Redis.
+Caching can be applied to improve performance. Caching the results of database queries, especially for frequently accessed or relatively static data, can significantly reduce the load on the database, in this case, the shipping data for the last 7 days. Common caching mechanisms include in-memory caching or external caching solutions like Redis.
 
