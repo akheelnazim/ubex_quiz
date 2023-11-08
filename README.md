@@ -6,8 +6,8 @@ You are integrating UBEX's systems with NorthPole Shipping Company (NPSC), a fic
 
 NPSC wants to display a week's worth of shipment data on their dashboard and has requested UBEX to provide an API endpoint to retrieve the latest statistics.
 ## Setup
-- Run in XAMPP Apache Server
-- Import the ubex.sql file for the database
+- Run the repository in XAMPP Apache Server.
+- Import the ubex.sql file for the database in MySQL.
 - Hit the API endpoint `/ubex/api/npsc` with selected value, for example [Example Link](http://localhost/ubex/api/npsc/?select_date_time=2020-02-1%2002:55:18)
 
 ## Implementation
