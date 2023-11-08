@@ -5,19 +5,23 @@
 You are integrating UBEX's systems with NorthPole Shipping Company (NPSC), a fictional regional agent responsible for shipping goods between offshore oilfield workers and their families in eastern Europe and western Asia. NPSC's main office is located in Norway, and they expect to receive shipment data in their operating timezone, currently set as CEST (Central European Summer Time).
 
 NPSC wants to display a week's worth of shipment data on their dashboard and has requested UBEX to provide an API endpoint to retrieve the latest statistics.
+## Setup
+- Run the repository in XAMPP Apache Server.
+- Import the ubex.sql file for the database in MySQL.
+- Hit the API endpoint `/ubex/api/npsc` with selected value, for example [Example Link](http://localhost/ubex/api/npsc/?select_date_time=2020-02-1%2002:55:18)
 
 ## Implementation
 
 ### Data Source
 
 Assumptions:
-- Data is stored in a database, to simulate a real world setting, accessible through the `connect.php` script.
+- Data is stored in a database, to simulate a real world setting, accessible through the `connection.php` script.
 - The database contains a table named "shipments" with shipment information from different vendors, in the format provided in the example data.
 - The data provided is complete, i.e. contains the scheduling and every update of the shipments
 
 ### API Functionality
 
-1. The API accepts a user-selected date and time in CEST via a `selected_date_time` parameter at endpoint `/ubex/api/npsc`. If not provided, it defaults to '2020-02-18 02:55:18' (latest entry in the example data).
+1. The API accepts a user-selected date and time in CEST via a `selected_date_time` query parameter at endpoint `/ubex/api/npsc`. If not provided, it defaults to '2020-02-18 02:55:18' (latest entry in the example data).
 
 2. It converts the selected date and time to GMT+3 using the `convertToGMT3` function, assuming that CEST corresponds to GMT+3.
 
@@ -63,6 +67,7 @@ To further enhance the solution:
 - Perform integration and end-to-end testing with predefined test cases.
 - Implement regression testing for code changes.
 - Use load testing tools to simulate heavy traffic and assess performance.
+- Conduct user acceptance testing before making the api live.
 
 ### Alternative Data Formats
 
