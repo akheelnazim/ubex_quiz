@@ -43,9 +43,11 @@ Assumptions:
 
 To further enhance the solution:
 
+- The user can be made able to get data for a previous date, not just the current date.
+- Further data can be sent as a response if needed, for example, if the client wants to differentiate between DOCS and NONDOCS.
 - Implement authentication and authorization for API security.
 - Document the API endpoints and usage to create clarity for the client.
-- Implement validation for input data.
+- Implement validation for input data, for example, a date in the wrong format or out of bounds should be recognized before processing.
 - Implement rate limiting to prevent abuse.
 - Set up logging and error tracking.
 - Conduct unit tests, integration tests, and end-to-end tests.
@@ -72,5 +74,5 @@ If NPSC's system calls the API once every 500 milliseconds, it might lead to exc
 
 ### Caching
 
-Caching can be applied to improve performance. Caching the results of database queries, especially for frequently accessed or relatively static data, can significantly reduce the load on the database, in this case, the shipping data for the last 7 days. Common caching mechanisms include in-memory caching or external caching solutions like Redis.
+Caching can be applied to improve performance. Caching the results of database queries, especially for frequently accessed or relatively static data, can significantly reduce the load on the database, in this case, the shipping data for the last 7 days, and can be updated at the end of each day. Common caching mechanisms include in-memory caching or external caching solutions like Redis.
 
